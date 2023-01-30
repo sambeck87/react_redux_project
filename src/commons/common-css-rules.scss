@@ -114,9 +114,7 @@ $breakpoints: (
 html {
   scroll-behavior: smooth;
 }
-body {
-  background-color: $container-color;
-}
+
 body,
 button,
 input,
@@ -126,12 +124,12 @@ textarea {
 }
 
 body {
-  background-color: $body-color;
+  background-color: $container-color;
   color: $text-color;
+}
 
-  @include md {
-    margin: 0 0 $header-height 0;
-  }
+@include md {
+  margin: 0 0 $header-height 0;
 }
 
 h1,
