@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Mission = () => (
+const Mission = ({ mission }) => (
   <div className="mission">
-    <h3 className="mission-title">Rocket Name</h3>
-    <p className="mission-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sunt sequi et reprehenderit nemo necessitatibus explicabo excepturi temporibus ipsa, incidunt eveniet quas aliquam in ad molestiae quis iusto fugiat quia.</p>
+    <h3 className="mission-title">{mission.mission_name}</h3>
+    <p className="mission-description">{mission.description}</p>
     <div className="mission-status">
       <button
         type="button"
@@ -20,5 +21,14 @@ const Mission = () => (
     </div>
   </div>
 );
+
+Mission.propTypes = {
+  mission: PropTypes.shape({
+    mission_id: PropTypes.string.isRequired,
+    mission_name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    status: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default Mission;
