@@ -18,7 +18,7 @@ function Navbar() {
           <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="Missions">Missions</NavLink>
         </li>
         <li>
-          <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="Missions">Dragons</NavLink>
+          <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="Dragons">Dragons</NavLink>
         </li>
         <li>
           <div className="divisor" />
