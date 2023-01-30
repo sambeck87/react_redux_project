@@ -30,11 +30,13 @@ h1 {
 }
 
 #navLinks li {
-  padding: 0 2rem 0 2rem;
   height: 1.5rem;
 }
 
 .divisor {
+  height: 1.2rem;
+  margin: 0;
+  padding: 0;
   border-right: solid black 1px;
 }
 

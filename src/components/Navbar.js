@@ -14,8 +14,14 @@ function Navbar() {
         <li>
           <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="/">Rockets</NavLink>
         </li>
-        <li className="divisor">
+        <li>
           <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="Missions">Missions</NavLink>
+        </li>
+        <li>
+          <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="Dragons">Dragons</NavLink>
+        </li>
+        <li>
+          <div className="divisor" />
         </li>
         <li>
           <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to="MyProfile">My Profile</NavLink>
