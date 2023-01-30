@@ -126,10 +126,10 @@ textarea {
 body {
   background-color: $container-color;
   color: $text-color;
-}
 
-@include md {
-  margin: 0 0 $header-height 0;
+  @include md {
+    margin: 0 0 $header-height 0;
+  }
 }
 
 h1,
