@@ -1,0 +1,162 @@
+@import '../commons//common-css-rules.scss';
+
+.nav-container {
+  width: 100%;
+  padding: 1.3rem;
+  background: $container-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+
+  .nav-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: $transition;
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .logo {
+        width: 3.2rem;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: $transition;
+
+        &:hover {
+          color: $link-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      padding: 1.3rem;
+      gap: 1.3rem;
+      transition: $transition;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+
+        &:hover {
+          color: $link-hover;
+        }
+
+        @include lg {
+          background-color: whitesmoke;
+          color: #222;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 5rem 1rem 3rem;
+        }
+      }
+
+      .active-nav {
+        text-decoration: underline;
+      }
+
+      li {
+        font-size: 1.2rem;
+
+        &:last-child {
+          border-left: 2px solid #978d8d;
+          padding: 0 1.5rem;
+
+          @include lg {
+            border: none;
+            padding: 0;
+          }
+        }
+
+        @include lg {
+          height: 4rem;
+          width: 100%;
+          box-shadow: -0.9rem 1rem 2rem rgba(168, 164, 164, 0.4);
+          animation: navAnimation 600ms ease forwards;
+          transform: rotate(90deg);
+          opacity: 0;
+          transform-origin: top;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 200ms;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 400ms;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 600ms;
+        }
+
+        .nav-links li:nth-child(5) {
+          animation-delay: 800ms;
+        }
+      }
+
+      @include lg {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 45%;
+        flex-direction: column;
+        gap: 0;
+        perspective: 400px;
+      }
+
+      &.show-nav {
+        @include lg {
+          display: flex;
+        }
+      }
+
+      &.hide-nav {
+        @include lg {
+          display: none;
+        }
+      }
+    }
+
+    .nav-toggle-btn {
+      display: none;
+
+      @include lg {
+        display: inline-block;
+        background: transparent;
+        font-size: 2rem;
+        margin-right: 1.5rem;
+        padding: 16px 0;
+        cursor: pointer;
+      }
+
+      svg {
+        color: $link-color;
+      }
+    }
+  }
+}
+
+@keyframes navAnimation {
+  to {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
