@@ -1,3 +1,4 @@
+import './styles/App.css';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navar';
@@ -14,7 +15,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Rockets />} />
       <Route path="/my-profile" element={<Profile />} />
-      <Route path="/Dragons" element={<Dragons />} />
+      <Route path="/dragons" element={<Dragons />} />
       <Route path="/mission" element={<Mission />} />
     </Routes>
   </>
