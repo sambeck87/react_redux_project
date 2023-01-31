@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const GETDATA = 'react_redux_project/rockets/GETDATA';
+const RESERVE = 'react_redux_project/rockets/RESERVE';
 const ROCKETS_URL = 'https://api.spacexdata.com/v3/rockets';
 
 export const getRockets = () => async (dispatch) => {
@@ -11,6 +12,11 @@ export const getRockets = () => async (dispatch) => {
   });
 };
 
+export const reserveRocket = (id) => ({
+  type: RESERVE,
+  payload: id,
+});
+
 const rocketReducer = (state = [], action) => {
   switch (action.type) {
     case GETDATA: return Object.keys(action.payload).map((key) => ({
@@ -20,6 +26,12 @@ const rocketReducer = (state = [], action) => {
       images: action.payload[key].flickr_images,
       reserved: false,
     }));
+    case RESERVE: return state.map((rocket) => {
+      if (rocket.id !== action.payload) {
+        return rocket;
+      }
+      return { ...rocket, reserved: !rocket.reserved };
+    });
     default: return state;
   }
 };
