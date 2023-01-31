@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mission from '../components/mission/Mission';
+import { URL } from '../redux/constants/ActionTypes';
 import { getMissionDetail } from '../redux/mission/mission';
 import '../styles/mission.scss';
 
@@ -13,6 +14,14 @@ const Missions = () => {
       flag = true;
     }
   }, [dispatch]);
+
+  const fetchData = async (url) => {
+    const resp = await fetch(url);
+    const data = await resp.json();
+    console.log(data);
+  };
+
+  fetchData(URL);
 
   const missions = useSelector((state) => state.missionReducer.missions);
   return (
