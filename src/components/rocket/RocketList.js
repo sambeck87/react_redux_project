@@ -1,9 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RocketItem from './RocketItem';
+import { reserveRocket } from '../../redux/rockets/Rockets';
 
 const RocketList = () => {
   const rockets = useSelector((state) => state.rocketReducer);
+  const dispatch = useDispatch();
+  const handleRocket = (id) => {
+    dispatch(reserveRocket(id));
+  };
 
   return (
     <div>
@@ -14,6 +19,8 @@ const RocketList = () => {
             rocketName={rocket.rocketName}
             description={rocket.description}
             image={rocket.images[0]}
+            reserved={rocket.reserved}
+            handleRocket={handleRocket}
           />
         </div>
       ))}

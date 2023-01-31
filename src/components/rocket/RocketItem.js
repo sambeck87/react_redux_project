@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 
 const RocketItem = (props) => {
   const {
+    id,
     rocketName,
     description,
     image,
+    reserved,
+    handleRocket,
   } = props;
+
   return (
     <li className="rocket">
       <img src={image} alt="rocket" />
@@ -14,17 +18,21 @@ const RocketItem = (props) => {
         <span className="rocket-name">
           {rocketName}
         </span>
-        <div className="rocket-detail ranad">
-          <span className="reserved">
-            Reserved
+
+        <div className="rocket-detail">
+          <span className={reserved ? 'reserved' : ''}>
+            {reserved ? 'Reserved' : ''}
           </span>
           {description}
         </div>
         <button
           type="button"
-          className="reserve"
+          className={reserved ? 'cancel-reservation' : 'reserve-rocket'}
+          onClick={() => {
+            handleRocket(id);
+          }}
         >
-          Cancel Reservation
+          {reserved ? 'Cancel Resercation' : 'Reserve Rocket'}
         </button>
       </div>
     </li>
@@ -34,7 +42,10 @@ const RocketItem = (props) => {
 export default RocketItem;
 
 RocketItem.propTypes = {
+  id: PropTypes.number.isRequired,
   rocketName: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
+  handleRocket: PropTypes.func.isRequired,
 };

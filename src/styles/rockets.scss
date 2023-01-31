@@ -56,28 +56,32 @@
           border: none;
           padding: 0.3rem 0.4rem;
           white-space: normal;
+          margin-right: 0.7rem;
         }
       }
 
-      .reserve-rocket {
-        background-color: #e8e8e8;
-        color: #979797;
-      }
-
-      .cancel-reservation {
-        background-color: #0290ff;
-        color: white;
-      }
-
-      .reserve-rocket,
       .cancel-reservation {
         margin-top: 0.25rem;
-        border: none;
+        border: rgb(171, 171, 171) 1px solid;
+        background-color: #fff;
         border-radius: 5px;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
+        padding: 0.7rem;
+        font-size: 1.1rem;
+        color: rgb(171, 171, 171);
         line-height: normal;
-        font-weight: bold;
+        width: fit-content;
+        cursor: pointer;
+      }
+
+      .reserve-rocket {
+        margin-top: 0.25rem;
+        border: none;
+        background-color: rgb(13, 130, 255);
+        border-radius: 5px;
+        padding: 0.7rem;
+        font-size: 1.1rem;
+        color: rgb(255, 255, 255);
+        line-height: normal;
         width: fit-content;
         cursor: pointer;
       }
