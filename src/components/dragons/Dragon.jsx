@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+// Component imports
+import { reserve } from '../../redux/dragons/Dragons';
 
-function Dragon({ name, type, image, reserved }) {
+function Dragon({
+  id,
+  name,
+  type,
+  image,
+  reserved,
+}) {
+  const [dragonId] = useState(id);
+  const dispatch = useDispatch();
+  function toggleReserve() {
+    dispatch(reserve(dragonId));
+  }
+
   return (
     <div className="single-dragon-container">
       <div className="dragon-image-container">
@@ -16,7 +31,7 @@ function Dragon({ name, type, image, reserved }) {
             {reserved ? 'Reserved' : '' }
           </span>
         </p>
-        <button type="button" className="reserve btn">Reserve Dragon</button>
+        <button type="button" className="reserve btn" onClick={toggleReserve}>Reserve Dragon</button>
       </div>
 
     </div>
@@ -24,6 +39,7 @@ function Dragon({ name, type, image, reserved }) {
 }
 
 Dragon.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

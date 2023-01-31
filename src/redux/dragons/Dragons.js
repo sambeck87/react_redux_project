@@ -16,6 +16,7 @@ export const fetchDragons = createAsyncThunk(
         name: dragon.name,
         type: dragon.type,
         images: [...dragon.flickr_images],
+        reserved: false,
       }));
       return parsedData;
     }),
@@ -29,6 +30,16 @@ const dragonsSlice = createSlice({
     loading: false,
   },
   reducers: {
+    reserve: (state, action) => {
+      const reservedArr = state.dragons.map((dragon) => {
+        if (dragon.id !== action.payload) {
+          return dragon;
+        }
+        return { ...dragon, reserved: true };
+      });
+      return { ...state, dragons: reservedArr };
+    },
+
   },
   extraReducers: {
     [fetchDragons.fulfilled]: (state, action) => {
@@ -47,4 +58,6 @@ const dragonsSlice = createSlice({
   },
 });
 
+const { actions } = dragonsSlice;
+export const { reserve } = actions;
 export default dragonsSlice.reducer;
