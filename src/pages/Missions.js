@@ -15,14 +15,6 @@ const Missions = () => {
     }
   }, [dispatch]);
 
-  const fetchData = async (url) => {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    console.log(data);
-  };
-
-  fetchData(URL);
-
   const missions = useSelector((state) => state.missionReducer.missions);
   return (
     <section className="mission-section">
