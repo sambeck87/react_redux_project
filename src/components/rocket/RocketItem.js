@@ -20,14 +20,14 @@ const RocketItem = (props) => {
         </span>
 
         <div className="rocket-detail">
-          <span className={reserved ? 'reserved' : 'no_reserved'}>
+          <span className={reserved ? 'reserved' : ''}>
             {reserved ? 'Reserved' : ''}
           </span>
           {description}
         </div>
         <button
           type="button"
-          className={reserved ? 'cancel_resercation' : 'reserve_rocket'}
+          className={reserved ? 'cancel-reservation' : 'reserve-rocket'}
           onClick={() => {
             handleRocket(id);
           }}
