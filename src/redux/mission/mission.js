@@ -1,38 +1,52 @@
-import { FETCH_MISSIONS, MISSIONS_FAILURE, MISSIONS_SUCCESS } from '../constants/ActionTypes';
+import {
+  FETCH_MISSIONS, JOIN_MISSION, LEAVE_MISSION, MISSIONS_FAILURE, MISSIONS_SUCCESS, URL,
+} from '../constants/ActionTypes';
 
 const initialState = [];
-const fetchMissions = () => ({ type: FETCH_MISSIONS });
-const fetchMissionsSuccess = (payload) => ({
+
+const getMission = () => ({ type: FETCH_MISSIONS });
+
+const getSuccessMission = (payload) => ({
   type: MISSIONS_SUCCESS,
   payload,
 });
 
-const fetchMissionsFailure = (payload) => ({
+const getFailedMission = (payload) => ({
   type: MISSIONS_FAILURE,
   payload,
 });
 
-const getAllMissions = () => async (dispatch) => {
-  dispatch(fetchMissions());
+const reserveMission = (payload) => ({
+  type: JOIN_MISSION,
+  payload,
+});
+
+const cancelMission = (payload) => ({
+  type: LEAVE_MISSION,
+  payload,
+});
+
+const getMissionDetail = () => async (dispatch) => {
+  dispatch(getMission());
   try {
-    const response = await fetch('https://api.spacexdata.com/v3/missions');
-    const data = await response.json();
+    const resp = await fetch(URL);
+    const data = await resp.json();
     const missions = [];
-    data.forEach((mission) => {
+    data.forEach((element) => {
       missions.push({
-        mission_id: mission.mission_id,
-        mission_name: mission.mission_name,
-        description: mission.description,
+        mission_id: element.mission_id,
+        mission_name: element.mission_name,
+        description: element.description,
         status: false,
       });
     });
-    dispatch(fetchMissionsSuccess(missions));
-  } catch (error) {
-    dispatch(fetchMissionsFailure(error.message));
+    dispatch(getSuccessMission(missions));
+  } catch (err) {
+    dispatch(getFailedMission(err.message));
   }
 };
 
-const missionsReducer = (state = initialState, action) => {
+const missionReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MISSIONS:
       return { ...state, loading: true };
@@ -40,11 +54,31 @@ const missionsReducer = (state = initialState, action) => {
       return { ...state, loading: false, missions: action.payload };
     case MISSIONS_FAILURE:
       return { ...state, loading: false, error: action.payload };
+    case JOIN_MISSION:
+      return {
+        ...state,
+        missions: state.missions.map((mission) => {
+          if (mission.mission_id === action.payload) {
+            return { ...mission, status: true };
+          }
+          return mission;
+        }),
+      };
+    case LEAVE_MISSION:
+      return {
+        ...state,
+        missions: state.missions.map((mission) => {
+          if (mission.mission_id === action.payload) {
+            return { ...mission, status: false };
+          }
+          return mission;
+        }),
+      };
     default:
       return state;
   }
 };
+export const allMissions = (state) => state.missionReducer.missions;
+export { getMissionDetail, reserveMission, cancelMission };
 
-export const allMissions = (state) => state.missionsReducer.missions;
-export { getAllMissions };
-export default missionsReducer;
+export default missionReducer;
