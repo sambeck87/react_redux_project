@@ -18,6 +18,7 @@ const RocketItem = (props) => {
         <span className="rocket-name">
           {rocketName}
         </span>
+
         <div className="rocket-detail">
           <span className={reserved ? 'reserved' : 'no_reserved'}>
             {reserved ? 'Reserved' : ''}
