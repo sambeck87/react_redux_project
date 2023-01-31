@@ -6,8 +6,20 @@ $title-dark-color: hsl($hue, $sat, 0%);
 $text-color: hsl($hue, $sat, 46%);
 $body-color: hsl($hue, $sat, 98%);
 $container-color: #fff;
+$light-color: #f4f6f7;
+$gray-color: #e8e8e8;
+$dark-gray: #979797;
+$red-color:#ee3030;
+$link-color: #0290ff;
+$link-hover: #05355a;
+$icon-color: #0f8fe4;
 
+// FONT FAMILIES
 $body-font: "Poppins", sans-serif;
+$nunito-font: "Nunito", sans-serif;
+$font-roboto: "Roboto", sans-serif;
+
+// FONT SIZES
 $bg-font-size: 3.5rem;
 $h1-font-size: 2.25rem;
 $h2-font-size: 1.5rem;
@@ -16,9 +28,8 @@ $normal-font-size: 1rem;
 $small-font-size: 0.875rem;
 $smaller-font-size: 0.813rem;
 $tiny-font-size: 0.625rem;
-$nunito-font: "Nunito", sans-serif;
-$font-roboto: "Roboto", sans-serif;
 
+// FONT WEIGHT
 $font-normal: 400;
 $font-medium: 500;
 $font-semi-bold: 600;
@@ -32,14 +43,15 @@ $mb-2:  2rem;
 $mb-2-5:  2.5rem;
 $mb-3:  3rem;
 
+// BORDER RADIUS
+$btn-border-radius: 0.3125rem;
+
+// Z-index
 $z-tooltip: 10;
 $z-fixed: 100;
 $z-modal: 1000;
 
 $transition: all 0.5s ease;
-$link-color: #0290ff;
-$link-hover: #05355a;
-$icon-color: #0f8fe4;
 
 $breakpoints: (
   "xs": 0,
@@ -158,36 +170,8 @@ img {
   height: auto;
 }
 
-.section {
-  padding: 6rem 0 2rem;
-
-  @include md {
-    padding: 2rem 0 4rem;
-  }
-}
-
-.section-title {
-  font-size: $h1-font-size;
-  color: $title-color;
-}
-
-.section-subtitle {
-  display: block;
-  font-size: $small-font-size;
-  margin-bottom: 4rem;
-
-  @include md {
-    margin-bottom: $mb-3;
-  }
-}
-
-.section-title,
-.section-subtitle {
-  text-align: center;
-}
-
 .container {
-  max-width: 68.75rem;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 
@@ -203,22 +187,6 @@ img {
 .grid {
   display: grid;
   gap: 1.5rem;
-}
-
-.button {
-  display: inline-block;
-  background-color: transparent;
-  gap: 0.3rem;
-  color: gray;
-  padding: 0.75rem 2rem;
-  border-radius: 0.625rem;
-  font-weight: $font-medium;
-  border: 1px solid indigo;
-  transition: $transition;
-
-  @include lg {
-    padding: 1rem 1.75rem;
-  }
 }
 
 .button:hover {
@@ -244,25 +212,4 @@ img {
   :root {
     $bg-font-size: 2.25rem;
   }
-}
-
-.btn {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: transparent;
-  color: #222;
-  padding: 0.25rem 1.5rem;
-  border: 0.3px solid rgb(54, 32, 70);
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: $transition;
-}
-
-.btn:hover {
-  background-color: whitesmoke;
-  border-color: rgb(7, 106, 131);
-  transform: translateY(-0.5rem);
-  color: #222;
 }
