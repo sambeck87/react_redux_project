@@ -1,0 +1,97 @@
+@import '../commons/common-css-rules.scss';
+
+.mission-container {
+  margin: 1.75rem 0 3rem;
+  border-radius: 0.25rem;
+  border: solid 1px #e8e8e8;
+
+  .mission-list {
+    display: grid;
+    grid-template-columns: 15% 50% 15% 15%;
+    justify-content: center;
+    border-bottom: solid 1px #dfd8d8;
+
+    .mission-info {
+      font-size: 1.5rem;
+      font-weight: bold;
+      gap: 1.2rem;
+      border-right: solid 1px #e8e8e8;
+      padding: 1rem 0.5rem 0.5rem;
+    }
+  }
+
+  .mission {
+    display: grid;
+    grid-template-columns: 15% 50% 15% 15%;
+    justify-content: center;
+
+    .mission-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1rem 0.5rem 0.5rem;
+      border-right: 1px solid $gray-color;
+    }
+
+    .mission-description {
+      padding: 1rem 0.5rem 0.5rem;
+      border-right: solid 1px $gray-color;
+    }
+
+    .mission-status {
+      grid-column: span 2;
+      display: flex;
+      font-size: 1.5rem;
+      font-weight: bold;
+      height: max-content;
+      gap: $mb-2;
+      padding: 1rem 0.5rem 0.5rem;
+
+      .mission-status-btn {
+        margin-right: 2rem;
+      }
+
+      .join-mission,
+      .leave-mission {
+        border-radius: $btn-border-radius;
+        padding: $mb-0-5;
+        font-size: $normal-font-size;
+        line-height: normal;
+        cursor: pointer;
+      }
+
+      .join-mission {
+        background-color: $gray-color;
+        color: $dark-gray;
+      }
+
+      .leave-mission {
+        color: $red-color;
+        border: 1px solid $red-color;
+      }
+    }
+
+    &:nth-child(even) {
+      background: $light-color;
+    }
+  }
+}
+
+.active-member {
+  background-color: #0290ff;
+}
+
+.not-member {
+  background-color: #979797;
+}
+
+.active-member,
+.not-member {
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  line-height: normal;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
