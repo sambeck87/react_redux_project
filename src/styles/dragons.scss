@@ -74,13 +74,14 @@
         cursor: pointer;
 
         &.reserve {
-          background-color: #e8e8e8;
-          color: #979797;
-        }
-
-        &.cancel {
           background-color: #0290ff;
           color: white;
+        }
+        
+        &.cancel {
+          background: transparent;
+          color: #979797;
+          border: 2px solid #979797;
         }
       }
     }

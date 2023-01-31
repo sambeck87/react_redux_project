@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 // Component imports
-import { reserve } from '../../redux/dragons/Dragons';
+import { reserve, cancelReserve } from '../../redux/dragons/Dragons';
 
 function Dragon({
   id,
@@ -12,9 +12,15 @@ function Dragon({
   reserved,
 }) {
   const [dragonId] = useState(id);
+  const [reservation, setReservation] = useState(reserved);
   const dispatch = useDispatch();
   function toggleReserve() {
-    dispatch(reserve(dragonId));
+    if (!reservation) {
+      dispatch(reserve(dragonId));
+      return setReservation(true);
+    }
+    dispatch(cancelReserve(id));
+    return setReservation(false);
   }
 
   return (
@@ -27,11 +33,11 @@ function Dragon({
         <p className="dragon-description">
           {type}
           <br />
-          <span className="dragon-reserverd">
+          <span className={reserved ? 'dragon-reserved' : ''}>
             {reserved ? 'Reserved' : '' }
           </span>
         </p>
-        <button type="button" className="reserve btn" onClick={toggleReserve}>Reserve Dragon</button>
+        <button type="button" className={reserved ? 'btn cancel' : 'btn reserve'} onClick={toggleReserve}>{reserved ? 'Cancel Reservation' : 'Reserve Dragon' }</button>
       </div>
 
     </div>
