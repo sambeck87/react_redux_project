@@ -14,7 +14,7 @@ const RocketItem = (props) => {
         <span className="rocket-name">
           {rocketName}
         </span>
-        <div className="rocket-detail">
+        <div className="rocket-detail ranad">
           <span className="reserved">
             Reserved
           </span>
