@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mission from '../components/mission/Mission';
-import { getAllMissions } from '../redux/mission/mission';
+import { getMissionDetail } from '../redux/mission/mission';
 import '../styles/mission.scss';
 
 let flag = false;
@@ -9,12 +9,12 @@ const Missions = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!flag) {
-      dispatch(getAllMissions());
+      dispatch(getMissionDetail());
       flag = true;
     }
   }, [dispatch]);
 
-  const missions = useSelector((state) => state.missionsReducer.missions);
+  const missions = useSelector((state) => state.missionReducer.missions);
   return (
     <section className="mission-section">
       <div className="container">
