@@ -12,6 +12,11 @@ const navLink = [
   },
   {
     id: 3,
+    link: '/dragons',
+    name: 'Dragons',
+  },
+  {
+    id: 4,
     link: 'my-profile',
     name: 'My Profile',
   },
