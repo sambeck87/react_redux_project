@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mission from '../components/mission/Mission';
-import { URL } from '../redux/constants/ActionTypes';
 import { getMissionDetail } from '../redux/mission/mission';
 import '../styles/mission.scss';
 
