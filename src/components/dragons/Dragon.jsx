@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Dragon({ name, type, image }) {
+function Dragon({ name, type, image, reserved }) {
   return (
     <div className="single-dragon-container">
       <div className="dragon-image-container">
@@ -12,7 +12,9 @@ function Dragon({ name, type, image }) {
         <p className="dragon-description">
           {type}
           <br />
-          <span className="dragon-reserverd">Reserved </span>
+          <span className="dragon-reserverd">
+            {reserved ? 'Reserved' : '' }
+          </span>
         </p>
         <button type="button" className="reserve btn">Reserve Dragon</button>
       </div>
@@ -25,5 +27,6 @@ Dragon.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
 };
 export default Dragon;
