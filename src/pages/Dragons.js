@@ -20,7 +20,14 @@ function Dragons() {
   return (
     <section className="dragons-container container ">
       {data.map((item) => (
-        <Dragon key={item.id} name={item.name} type={item.type} image={item.images[0]} />
+        <Dragon
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          type={item.type}
+          image={item.images[0]}
+          reserved={item.reserved}
+        />
       ))}
     </section>
   );
