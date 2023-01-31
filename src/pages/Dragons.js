@@ -13,7 +13,7 @@ function Dragons() {
     }
   }, [dispatch]);
   // eslint-disable-next-line no-unused-vars
-  const data = useSelector((state) => state.rootReducer.dragonsSlice.dragons);
+  const data = useSelector((state) => state.dragonsSlice.dragons);
   return (
     <div>
       Dragons
