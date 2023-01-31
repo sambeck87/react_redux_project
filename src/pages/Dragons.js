@@ -13,7 +13,6 @@ function Dragons() {
     }
   }, [dispatch]);
   const data = useSelector((state) => state.rootReducer.dragonsSlice.dragons);
-  console.log('data', data);
   return (
     <div>
       Dragons
