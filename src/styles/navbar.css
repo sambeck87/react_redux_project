@@ -1,0 +1,49 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+#logo {
+  width: 80px;
+  margin: 0 30px 0 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: black;
+}
+
+#navLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+  margin: 0 50px 0 0;
+}
+
+#navLinks li {
+  height: 1.5rem;
+}
+
+.divisor {
+  height: 1.2rem;
+  margin: 0;
+  padding: 0;
+  border-right: solid black 1px;
+}
+
+#navLinks li a {
+  color: blue;
+}
+
+.activeLink {
+  text-decoration: underline;
+}

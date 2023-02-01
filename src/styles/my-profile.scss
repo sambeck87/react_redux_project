@@ -1,0 +1,47 @@
+@import '../commons/common-css-rules.scss';
+
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+
+  .profile-mission,
+  .profile-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .reserved-mission,
+  .reserved-rocket {
+    display: flex;
+    padding: 0.25rem;
+    list-style: none;
+    flex-direction: column;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+  }
+
+  .reserved-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1rem 1.2rem;
+    border-bottom: solid 1px #e8e8e8;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .leave-mission {
+    border-radius: $btn-border-radius;
+    padding: $mb-0-5;
+    margin-left: $mb-0-5;
+    font-size: $normal-font-size;
+    line-height: normal;
+    cursor: pointer;
+  }
+}
