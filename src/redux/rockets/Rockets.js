@@ -1,15 +1,21 @@
-import axios from 'axios';
-
 const GETDATA = 'react_redux_project/rockets/GETDATA';
+const FAIL = 'react_redux_project/rockets/FAIL';
 const RESERVE = 'react_redux_project/rockets/RESERVE';
 const ROCKETS_URL = 'https://api.spacexdata.com/v3/rockets';
 
 export const getRockets = () => async (dispatch) => {
-  const response = await axios.get(ROCKETS_URL);
-  dispatch({
-    type: GETDATA,
-    payload: response.data,
-  });
+  try {
+    const resp = await fetch(ROCKETS_URL);
+    const data = await resp.json();
+    dispatch({
+      type: GETDATA,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: FAIL,
+    });
+  }
 };
 
 export const reserveRocket = (id) => ({
@@ -26,6 +32,8 @@ const rocketReducer = (state = [], action) => {
       images: action.payload[key].flickr_images,
       reserved: false,
     }));
+    case FAIL:
+      return { ...state, loading: false, error: action.payload };
     case RESERVE: return state.map((rocket) => {
       if (rocket.id !== action.payload) {
         return rocket;
