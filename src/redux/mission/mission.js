@@ -2,7 +2,9 @@ import {
   FETCH_MISSIONS, JOIN_MISSION, LEAVE_MISSION, MISSIONS_FAILURE, MISSIONS_SUCCESS, URL,
 } from '../constants/ActionTypes';
 
-const initialState = [];
+const initialState = {
+  missions: [],
+};
 
 const getMission = () => ({ type: FETCH_MISSIONS });
 
