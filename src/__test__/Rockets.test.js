@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -24,11 +24,11 @@ describe('Rockets', () => {
           <Rockets />
         </BrowserRouter>
       </Provider>,
-    )
-    container.querySelector('.rocket-name')
-    expect(container.firstChild).toMatchSnapshot()
+    );
+    container.querySelector('.rocket-name');
+    expect(container.firstChild).toMatchSnapshot();
 
-    container.querySelector('.rocket-detail')
-    expect(container.firstChild).toMatchSnapshot()
+    container.querySelector('.rocket-detail');
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
