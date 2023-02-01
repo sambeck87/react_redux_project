@@ -25,10 +25,6 @@ const MyProfile = () => {
     dispatch(reserveRocket(id));
   };
 
-  console.log('missions', reservedMissions);
-  console.log('dragons', reservedDragons);
-  console.log('rockets', reservedRockets);
-
   return (
     <section className="container profile-section">
       <div>
