@@ -1,14 +1,15 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const GETDATA = 'react_redux_project/rockets/GETDATA';
 const RESERVE = 'react_redux_project/rockets/RESERVE';
 const ROCKETS_URL = 'https://api.spacexdata.com/v3/rockets';
 
 export const getRockets = () => async (dispatch) => {
-  const response = await axios.get(ROCKETS_URL);
+  const response = await fetch(ROCKETS_URL);
+  const data = await response.json();
   dispatch({
     type: GETDATA,
-    payload: response.data,
+    payload: data,
   });
 };
 
