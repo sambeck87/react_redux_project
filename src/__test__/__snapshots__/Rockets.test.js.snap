@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rockets renders Rockets Page without crashing 1`] = `undefined`;
+
+exports[`Rockets renders Rockets Page without crashing 2`] = `
+<section
+  class="rocket-container container"
+>
+  <ul>
+    <div
+      class="rocket_container"
+    />
+  </ul>
+</section>
+`;
+
+exports[`Rockets renders Rockets Page without crashing 3`] = `
+<section
+  class="rocket-container container"
+>
+  <ul>
+    <div
+      class="rocket_container"
+    />
+  </ul>
+</section>
+`;
