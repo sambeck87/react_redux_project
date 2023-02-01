@@ -15,7 +15,7 @@ const RocketItem = (props) => {
     <li className="rocket">
       <img src={image} alt="rocket" />
       <div className="single-rocket-container">
-        <span className="rocket-name">
+        <span data-testid="name" className="rocket-name">
           {rocketName}
         </span>
 
@@ -26,13 +26,14 @@ const RocketItem = (props) => {
           {description}
         </div>
         <button
+          data-testid="button"
           type="button"
           className={reserved ? 'cancel-reservation' : 'reserve-rocket'}
           onClick={() => {
             handleRocket(id);
           }}
         >
-          {reserved ? 'Cancel Resercation' : 'Reserve Rocket'}
+          {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
         </button>
       </div>
     </li>
