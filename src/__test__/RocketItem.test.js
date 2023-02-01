@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import RocketItem from './RocketItem';
+import RocketItem from '../components/rocket/RocketItem';
 
 describe('RocketItem', () => {
   let props;
@@ -18,8 +18,8 @@ describe('RocketItem', () => {
   });
 
   test('should render correctly with all props', () => {
-    const component = render(<RocketItem {...props} />);
-    expect(component).toMatchSnapshot();
+    const tree = render(<RocketItem {...props} />);
+    expect(tree).toMatchSnapshot();
   });
 
   test('should render the correct rocket name', () => {
