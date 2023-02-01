@@ -175,10 +175,6 @@ img {
   margin-left: auto;
   margin-right: auto;
 
-  @include lg {
-    margin: 0 $mb-1-5;
-  }
-
   @include sm {
     margin: 0 $mb-1;
   }
