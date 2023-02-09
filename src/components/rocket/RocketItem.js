@@ -13,7 +13,7 @@ const RocketItem = (props) => {
 
   return (
     <li className="rocket">
-      <img src={image} alt="rocket" />
+      <img className="rocket_image" src={image} alt="rocket" />
       <div className="single-rocket-container">
         <span data-testid="name" className="rocket-name">
           {rocketName}
